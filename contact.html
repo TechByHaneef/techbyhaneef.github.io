@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contact | TechByHaneef</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <header class="navbar">
+        <!-- logo(Left Side) -->
+        <div class="logo">
+            <img src="logo.jpeg" alt=" myLogo" class="logo">
+            <span class="name">TechByHaneef</span>
+        </div>
+
+        <!-- Navigation Links (Right Side) -->
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="#skills">Skills</a>
+            <a href="courses.html">Courses</a>
+            <a href="notes.html">Notes</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <div class="hamburger" onclick="toggleMenu()">
+            &#9776; <!-- Unicode hamburger icon -->
+        </div>
+    </header>
+    <main>
+
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <p>Fill out the form for job opportunities, business inquiries, or complaints.</p>
+
+            <form id="contactForm">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="phone">Contact Number:</label>
+                <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}"
+                    placeholder="Enter 10-digit number" required>
+
+                <label for="company">Company:</label>
+                <input type="text" id="company" name="company">
+
+                <label for="subject">Subject:</label>
+                <select id="subject" name="subject" required>
+                    <option value="">-- Select an option --</option>
+                    <option value="complaint">Complaint / Feedback</option>
+                    <option value="business">Business Inquiry</option>
+                    <option value="job">Job Opportunity</option>
+                </select>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5"></textarea>
+
+                <div class="consent-section">
+                    <div class="consent-option">
+                        <input type="checkbox" name="consent" required>
+                        <label for="consent">I give permission to be contacted</label>
+                    </div>
+                </div>
+                </label>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <!-- Main Pages -->
+            <div class="footer-section">
+                <h3>Main Pages</h3>
+                <ul class="main-links">
+                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="skills.html"><i class="fas fa-info-circle"></i>
+                            Skills</a></li>
+                    <li><a href="notes.html"><i class="fas fa-notes-medical"></i>
+                            Notes</a></li>
+                    <li><a href="courses.html"><i class="fas fa-book"></i> Courses</a></li>
+                    <li><a href="contact.html"><i class="fas fa-envelope"></i>
+                            Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Social Media -->
+            <div class="footer-section">
+                <h3>Social</h3>
+                <ul class="social-links">
+                    <li><a href="https://www.youtube.com/@TechByHaneef" target="_blank" rel="noopener noreferrer"><i
+                                class="fab fa-youtube"></i> YouTube</a></li>
+                    <li><a href="https://www.instagram.com/haneefkhan_1?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                            target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i>
+                            Instagram</a></li>
+                    <li><a href="https://www.linkedin.com/in/haneef-khan-b0b804357?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+                            target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i>
+                            LinkedIn</a></li>
+                    <li><a href="https://x.com/MohdHaneefkha1n" target="_blank" rel="noopener noreferrer"><i
+                                class="fab fa-twitter"></i> Twitter</a>
+                    </li>
+                    <li> <a href="https://github.com/TechByHaneef" target="_blank" rel="noopener noreferrer"><i
+                                class="fab fa-github"></i> GitHub</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 TechByHaneef. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
