@@ -516,6 +516,7 @@ footer {
 .search-box {
   margin: 0 auto; /* pushes search box to center */
   position: relative; /* for absolute positioning of search icon */
+  
 }
 .results {
     position: absolute;
