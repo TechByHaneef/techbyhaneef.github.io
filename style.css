@@ -461,9 +461,10 @@ footer {
 .cta-button {
     text-decoration: none;
     padding: 10px 20px;
-     background: #1a324a;
+    background: #1a324a;
     color: white;
     border-radius: 5px;
+    gap: 15px;
 }
 .cta-button:hover {
     background: #005bb5;
@@ -504,4 +505,40 @@ footer {
     padding: 0 10px;             /* add breathing space */
     text-align: center;          /* center align for balance */
   }
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between; /* logo left, nav right */
+  align-items: center;
+}
+
+.search-box {
+  margin: 0 auto; /* pushes search box to center */
+  position: relative; /* for absolute positioning of search icon */
+}
+.results {
+    position: absolute;
+    top: 100%; /* directly below search box */
+    left: 0;
+    width: 100%;
+    background: #fff;
+    border: 1px solid #ddd;
+    max-height: 200px; /* limit height */
+    overflow-y: auto; /* scroll if too many results */
+    z-index: 1000; /* ensure it appears above other elements */
+}
+
+.carousel-text {
+    text-align: center;
+}
+
+#contact-info {
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #f9f9f9;
+    font-family: "Arial", sans-serif;
 }

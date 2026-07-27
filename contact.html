@@ -7,7 +7,7 @@
     <title>contact | TechByHaneef</title>
     <link rel="stylesheet" href="style.css">
     <script src="main.js" defer></script>
-     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -21,10 +21,17 @@
             <span class="name">TechByHaneef</span>
         </div>
 
+        <!-- <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search...">
+            <button id="searchButton"><i class="fas fa-search"></i></button>
+        </div>
+
+        <div id="results"> </div> -->
+
+
         <!-- Navigation Links (Right Side) -->
         <nav class="nav-links">
             <a href="index.html">Home</a>
-            <a href="#skills">Skills</a>
             <a href="courses.html">Courses</a>
             <a href="notes.html">Notes</a>
             <a href="contact.html">Contact</a>
@@ -62,7 +69,7 @@
                 </select>
 
                 <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="5"></textarea>
+                <textarea id="message" name="message" rows="5" required></textarea>
 
                 <div class="consent-section">
                     <div class="consent-option">
@@ -75,6 +82,15 @@
                 <button type="submit">Send Message</button>
             </form>
         </section>
+
+        <section id="contact-info">
+            <h2>You can also write to us :</h2>
+            <ul>
+                <li><i class="fas fa-envelope"></i> Email: <a
+                        href="mailto:khanmohdhaneef071@gmail.com" style="text-decoration: none;">khanmohdhaneef071@gmail.com</a></li>
+            </ul>
+            <p>We will respond to your message as soon as possible.</p>
+        </section>
     </main>
     <footer>
         <div class="footer-container">
@@ -83,8 +99,6 @@
                 <h3>Main Pages</h3>
                 <ul class="main-links">
                     <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-                    <li><a href="skills.html"><i class="fas fa-info-circle"></i>
-                            Skills</a></li>
                     <li><a href="notes.html"><i class="fas fa-notes-medical"></i>
                             Notes</a></li>
                     <li><a href="courses.html"><i class="fas fa-book"></i> Courses</a></li>
@@ -95,7 +109,7 @@
 
             <!-- Social Media -->
             <div class="footer-section">
-                <h3>Social</h3>
+                <h3>Social Profiles</h3>
                 <ul class="social-links">
                     <li><a href="https://www.youtube.com/@TechByHaneef" target="_blank" rel="noopener noreferrer"><i
                                 class="fab fa-youtube"></i> YouTube</a></li>
