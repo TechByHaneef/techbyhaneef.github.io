@@ -80,48 +80,6 @@ if (registerForm) {
             }
         });
     }
-
-
-    /// Search bar
-    const searchInput = document.getElementById("searchInput");
-    const results = document.getElementById("results");
-
-    if (searchInput && results) {
-
-        const items = [
-            { title: "MS Word Course", url: "courses.html" },
-            { title: "MS Excel Course", url: "courses.html" },
-            { title: "250 + Shortcut Keys", url: "notes.html" }
-        ];
-
-        searchInput.addEventListener("input", function () {
-
-            const keyword = this.value.trim().toLowerCase();
-            results.innerHTML = "";
-
-            if (keyword.length === 0) {
-                return;
-            }
-
-            const matches = items.filter(item =>
-                item.title.toLowerCase().includes(keyword)
-            );
-
-            if (matches.length === 0) {
-                results.innerHTML = "<p>No results found</p>";
-                return;
-            }
-
-            matches.forEach(item => {
-                const link = document.createElement("a");
-                link.href = item.url;
-                link.textContent = item.title;
-                link.classList.add("result");
-                results.appendChild(link);
-            });
-        });
-
-    }
 }
 // shareCourse
 document.getElementById("shareBtn1")?.addEventListener("click", function () {
