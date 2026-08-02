@@ -458,6 +458,7 @@ footer {
     padding-right: 50px;
     margin: 20px auto;
 }
+
 .cta-button {
     text-decoration: none;
     padding: 10px 20px;
@@ -466,10 +467,12 @@ footer {
     border-radius: 5px;
     gap: 15px;
 }
+
 .cta-button:hover {
     background: #005bb5;
     transform: scale(1.05);
 }
+
 .carousel-text {
     padding: 10px 20px;
 }
@@ -485,49 +488,69 @@ footer {
     transition: background 0.3s, transform 0.3s;
     font-weight: bold;
 }
+
 .download-btn:hover {
     background: #005bb5;
     transform: scale(1.05);
 }
-@media (max-width: 340px) {
-  .cta-button {
-    display: block;              /* stack buttons vertically */
-    width: 90%;                  /* keep some margin on sides */
-    margin: 8px auto;            /* center with spacing */
-    padding: 12px;               /* bigger tap area */
-    font-size: 14px;             /* readable text size */
-    text-align: center;          /* center text inside button */
-  }
 
-  p {
-    font-size: 14px;             /* adjust paragraph text */
-    line-height: 1.4;            /* improve readability */
-    padding: 0 10px;             /* add breathing space */
-    text-align: center;          /* center align for balance */
-  }
+@media (max-width: 340px) {
+    .cta-button {
+        display: block;
+        /* stack buttons vertically */
+        width: 90%;
+        /* keep some margin on sides */
+        margin: 8px auto;
+        /* center with spacing */
+        padding: 12px;
+        /* bigger tap area */
+        font-size: 14px;
+        /* readable text size */
+        text-align: center;
+        /* center text inside button */
+    }
+
+    p {
+        font-size: 14px;
+        /* adjust paragraph text */
+        line-height: 1.4;
+        /* improve readability */
+        padding: 0 10px;
+        /* add breathing space */
+        text-align: center;
+        /* center align for balance */
+    }
 }
 
 .navbar {
-  display: flex;
-  justify-content: space-between; /* logo left, nav right */
-  align-items: center;
+    display: flex;
+    justify-content: space-between;
+    /* logo left, nav right */
+    align-items: center;
 }
 
 .search-box {
-  margin: 0 auto; /* pushes search box to center */
-  position: relative; /* for absolute positioning of search icon */
-  
+    margin: 0 auto;
+    /* pushes search box to center */
+    position: relative;
+    /* for absolute positioning of search icon */
+
 }
+
 .results {
     position: absolute;
-    top: 100%; /* directly below search box */
+    top: 100%;
+    /* directly below search box */
     left: 0;
     width: 100%;
     background: #fff;
     border: 1px solid #ddd;
-    max-height: 200px; /* limit height */
-    overflow-y: auto; /* scroll if too many results */
-    z-index: 1000; /* ensure it appears above other elements */
+    max-height: 200px;
+    /* limit height */
+    overflow-y: auto;
+    /* scroll if too many results */
+    z-index: 1000;
+    /* ensure it appears above other elements */
 }
 
 .carousel-text {
@@ -543,8 +566,50 @@ footer {
     background: #f9f9f9;
     font-family: "Arial", sans-serif;
 }
+
 .footer-bottom {
     text-align: center;
     margin-top: 20px;
     color: #000000;
+}
+
+.tbh {
+    margin: 20px;
+}
+
+.hm {
+    display: inline-block;
+    padding: 10px;
+    background: #16497d;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s, transform 0.3s;
+    font-weight: bold;
+}
+
+.vp {
+    display: inline-block;
+    padding: 10;
+    background: #16497d;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s, transform 0.3s;
+    font-weight: bold;
+}
+
+.dev {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 20px;;
+}
+.techstack {
+    margin: 20px;
+}
+
+.brands {
+font-size: 60px;
+margin: 20px;
 }
