@@ -141,6 +141,7 @@ function renderRecords() {
     });
 
     totalEl.textContent = `₹${total.toFixed(2)}`;
+    totalOverTimeEl.textContent = formatOvertime(totalOvertimeHours);
   };
 }
 
