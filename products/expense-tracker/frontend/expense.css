@@ -1,0 +1,383 @@
+/* ===============================
+   Global Reset
+   =============================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background: #f4f4f4;
+  font-family: 'Roboto', 'Noto Sans', Arial, sans-serif;
+}
+
+
+/* ===============================
+   Header
+   =============================== */
+
+header {
+  width: 100%;
+  background: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+
+/* ===============================
+   Section Layout
+   =============================== */
+
+section {
+  width: calc(100% - 30px);
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+
+/* ===============================
+   Table
+   =============================== */
+
+table {
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  margin: 0 auto;
+}
+
+th,
+td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+td:nth-child(6) {
+  text-align: center;
+}
+.amount-cell {
+  text-align: center !important;
+  justify-content: center; /* for flex layouts in mobile */
+}
+
+
+
+/* ===============================
+   Buttons
+   =============================== */
+
+button {
+  background: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin: 5px;
+  border-radius: 4px;
+}
+
+button:hover {
+  background: #555;
+}
+
+
+/* ===============================
+   Inputs & Selects
+   =============================== */
+
+select,
+input {
+  margin: 5px;
+  padding: 8px;
+  max-width: 100%;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+/* ===============================
+   Summary
+   =============================== */
+
+#summary {
+  background: #0066cc;
+  color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+#total {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+
+/* ===============================
+   Export Button
+   =============================== */
+
+#exportExcel {
+  display: block;
+  margin: 20px auto;
+  background: #28a745;
+  color: #fff;
+  font-size: 16px;
+  padding: 12px 24px;
+  border-radius: 6px;
+}
+
+#exportExcel:hover {
+  background: #218838;
+}
+
+
+/* ===============================
+   Footer
+   =============================== */
+
+footer {
+  width: 100%;
+  background-color: #222;
+  padding: 20px;
+  text-align: center;
+}
+
+footer a {
+  color: #f1f1f1;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+footer a:hover {
+  color: #00bcd4;
+  transform: scale(1.05);
+}
+
+footer a:active {
+  color: #ff9800;
+}
+
+
+/* ===============================
+   Mobile
+   =============================== */
+
+@media (max-width: 1200px) {
+
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tbody {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  tbody tr {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 0 20px 0;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    /* Prevent row from becoming wider */
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  tbody tr:nth-child(even) {
+    background: #f9f9f9;
+  }
+
+  td {
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    justify-content: space-between;
+    align-items: flex-start;
+
+    padding: 8px;
+    border: none;
+    border-bottom: 1px solid #eee;
+
+    text-align: right;
+
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  td.amount-cell {
+    text-align: right !important;
+    justify-content: space-between;
+  }
+
+  td.amount-cell::before {
+    margin-right: 10px;
+  }
+
+  td:last-child {
+    justify-content: flex-start;
+    gap: 5px;
+  }
+
+  td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    margin-right: 10px;
+    color: #333;
+    flex: 0 0 40%;
+    min-width: 0;
+    text-align: left;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+}
+
+
+/* ===============================
+   Small Mobile Screens
+   =============================== */
+@media (max-width: 600px) {
+
+  body {
+    font-size: 16px;
+  }
+
+  header {
+    padding: 10px;
+  }
+
+  section {
+    width: calc(100% - 20px);
+    max-width: calc(100% - 20px);
+    margin: 10px auto;
+    padding: 12px;
+  }
+
+  #expense-list {
+    overflow-x: auto;
+  }
+
+  #expense-list table {
+    width: max-content;
+    min-width: 100%;
+  }
+
+  #expense-list th:last-child,
+  #expense-list td:last-child {
+    position: sticky;
+    right: 0;
+    background: white;
+    z-index: 10;
+  }
+
+  #expense-list th:last-child {
+    z-index: 11;
+  }
+
+  tbody tr {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  input,
+  select,
+  button {
+    max-width: 100%;
+  }
+
+  #expense-form input,
+  #expense-form select,
+  #expense-form button {
+    width: 100%;
+  }
+
+  #exportExcel {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+/* ===============================
+   Mobile Amount & Action Fix
+   =============================== */
+
+@media (max-width: 600px) {
+  td.amount-cell {
+    text-align: right !important;
+    justify-content: space-between;
+  }
+
+  td:last-child {
+    align-items: center;
+  }
+
+  td:last-child button {
+    white-space: nowrap;
+    flex-shrink: 0;
+    padding: 10px 18px;
+  }
+}
+
+/* ===============================
+   Extra Small Screens (≤ 380px)
+   =============================== */
+@media (max-width: 380px) {
+  td:last-child {
+    display: flex;
+    justify-content: center;   /* keeps buttons side by side */
+    align-items: center;
+    gap: 5px;
+  }
+
+  td:last-child button {
+    white-space: nowrap;
+    flex-shrink: 0;
+    padding: 8px 14px; /* slightly smaller for tiny screens */
+  }
+}

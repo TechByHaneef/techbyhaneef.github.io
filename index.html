@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechByHaneef</title>
+    <meta name="description" content="welcome in techbyHaneef your 1 Stop destination for technical learning">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="js/main.js" defer></script>
+    <link rel="contact" href="contact.html">
+    <link rel="notes" href="notes.html">
+    <link rel="courses" href="courses.html">
+
+</head>
+
+<body>
+    <header class="navbar">
+        <!-- logo(Left Side) -->
+        <div class="logo">
+            <img src="images/logo.jpeg" alt=" myLogo" class="logo">
+            <span class="name">TechByHaneef</span>
+        </div>
+
+        <!-- Navigation Links (Right Side) -->
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="courses.html">Courses</a>
+            <a href="notes.html">Notes</a>
+            <a href="products.html">Products</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <div class="hamburger" onclick="toggleMenu()">
+            &#9776; <!-- Unicode hamburger icon -->
+        </div>
+
+    </header>
+
+
+    <div id="popupForm" class="popup">
+        <div class="popup-content">
+            <button class="close-btn" id="cancelBtn" type="button" onclick="closePopup()">&times;</button>
+            <h2>Register at TechByHaneef</h2>
+            <form id="registerForm">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <!-- Mandatory Checkbox -->
+                <label>
+                    <input type="checkbox" name="consent" required>
+                    I consent to be contacted.
+                </label>
+                <button type="submit">Register</button>
+            </form>
+        </div>
+    </div>
+
+    <main>
+        <div class="carousel">
+            <img src="images/image3.jpeg" class="slide active" alt="hero section image">
+        </div>
+        <section class="carousel-text">
+            <h1>Welcome In TechByHaneef</h1>
+            <p>Empowering your digital journey with innovative solutions and expert guidance.</p>
+            <!-- <a href="courses.html" class="cta-button">Explore Courses</a>
+            <a href="notes.html" class="cta-button">Download Notes</a> -->
+        </section>
+        <div class="cta-buttons">
+            <a href="courses.html" class="cta-button">Explore Courses</a>
+            <a href="notes.html" class="cta-button">Download Notes</a>
+        </div>
+        <div class="card-container">
+            <!-- Full Stack Developer -->
+            <div class="card">
+                <img src="images/Full Stack Developer.png" alt="Full Stack Developer">
+                <h2>Web Developer</h2>
+                <p>Building dynamic web applications with expertise in both front-end and back-end technologies.</p>
+                <a href="developer.html" class="cta-button">Know More</a>
+            </div>
+
+            <!-- Educator -->
+            <div class="card">
+                <img src="images/Educator.jpeg" alt="Educator">
+                <h2>Educator</h2>
+                <p>Passionate about teaching and mentoring, simplifying complex concepts for learners.</p>
+                <a href="https://www.youtube.com/@TechByHaneef" class="cta-button" target="_blank" rel="noopener noreferrer">Watch Now</a>
+            </div>
+        </div>
+
+        <section id="contact">
+            <h2>Contact Us-TechByHaneef</h2>
+
+            <form id="contactForm">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+
+        <section id="contact-info">
+            <h2>You can also write to us :</h2>
+            <ul>
+                <li><i class="fas fa-envelope"></i> Email: <a href="mailto:khanmohdhaneef071@gmail.com"
+                        style="text-decoration: none;">khanmohdhaneef071@gmail.com</a></li>
+            </ul>
+            <p>We will respond to your message as soon as possible.</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <!-- Main Pages -->
+            <div class="footer-section">
+                <h3>Main Pages</h3>
+                <ul class="main-links">
+                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="notes.html"><i class="fas fa-notes-medical"></i>
+                            Notes</a></li>
+                    <li><a href="courses.html"><i class="fas fa-book"></i> Courses</a></li>
+                    <li><a href="products.html"><i class="fa fa-cogs"></i> Products</a></li>
+                    <li><a href="contact.html"><i class="fas fa-envelope"></i>
+                            Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Social Media -->
+            <div class="footer-section">
+                <h3>Social Profiles</h3>
+                <ul class="social-links">
+                    <li><a href="https://www.youtube.com/@TechByHaneef" target="_blank" rel="noopener noreferrer"><i
+                                class="fab fa-youtube"></i> YouTube</a></li>
+                    <li><a href="https://www.instagram.com/haneefkhan_1?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                            target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i>
+                            Instagram</a></li>
+                    <li><a href="https://www.linkedin.com/in/haneef-khan-b0b804357?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+                            target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i>
+                            LinkedIn</a></li>
+                    <li><a href="https://x.com/MohdHaneefkha1n" target="_blank" rel="noopener noreferrer"><i
+                                class="fab fa-twitter"></i> Twitter</a>
+                    </li>
+                    <li> <a href="https://github.com/TechByHaneef" target="_blank" rel="noopener noreferrer"><i
+                                class="fab fa-github"></i> GitHub</a></li>
+                    <li><a href="https://www.facebook.com/profile.php?id=61552603756032" target="_blank"
+                            rel="noopener noreferrer"><i class="fab fa-facebook"></i> Facebook</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 TechByHaneef. All rights reserved.</p>
+            <p><i class="fas fa-code"></i> Developed with ❤️ and ☕ in India </p>
+        </div>
+    </footer>
+    <!-- <a href="https://wa.me/@techByHaneef" class="whatsapp" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-whatsapp"></i> -->
+    </a>
+</body>
+
+</html>
