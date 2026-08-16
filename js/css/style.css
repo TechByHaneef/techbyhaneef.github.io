@@ -5,7 +5,7 @@ main {
     padding: 0;
 }
 
-.logo img {
+.logo img { 
     height: clamp(35px, 3vw, 60px);
     width: auto;
     object-fit: contain;
