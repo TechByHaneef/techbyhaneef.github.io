@@ -50,34 +50,77 @@ section {
 
 
 /* ===============================
+   Travel Records Container
+   =============================== */
+
+#expense-list {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+
+/* ===============================
+   Horizontal Table Scroll
+   =============================== */
+
+.table-scroll {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+
+/* ===============================
    Table
    =============================== */
 
-table {
-  width: 100%;
-  max-width: 100%;
+.table-scroll table {
+  width: max-content;
+  min-width: 100%;
+  max-width: none;
   border-collapse: collapse;
-  table-layout: fixed;
-  margin: 0 auto;
+  table-layout: auto;
+  margin: 0;
+  white-space: nowrap;
 }
 
-th,
-td {
+.table-scroll th,
+.table-scroll td {
   padding: 10px;
   border-bottom: 1px solid #ddd;
   text-align: center;
-  overflow-wrap: anywhere;
-  word-break: break-word;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  word-break: normal;
 }
 
-td:nth-child(6) {
+
+/* Amount */
+.table-scroll td:nth-child(6) {
   text-align: center;
 }
-.amount-cell {
+
+.table-scroll .amount-cell {
   text-align: center !important;
-  justify-content: center; /* for flex layouts in mobile */
 }
 
+
+/* ===============================
+   Actions
+   =============================== */
+
+.table-scroll td:last-child {
+  white-space: nowrap;
+  text-align: center;
+}
+
+.table-scroll td:last-child button {
+  white-space: nowrap;
+  flex-shrink: 0;
+}
 
 
 /* ===============================
@@ -143,11 +186,13 @@ input[type=number]::-webkit-outer-spin-button {
 
 #exportExcel {
   display: block;
+  width: auto;
+  max-width: fit-content;
   margin: 20px auto;
+  padding: 12px 24px;
   background: #28a745;
   color: #fff;
   font-size: 16px;
-  padding: 12px 24px;
   border-radius: 6px;
 }
 
@@ -191,88 +236,61 @@ footer a:active {
 
 @media (max-width: 1200px) {
 
-  table,
-  thead,
-  tbody,
-  th,
-  td,
-  tr {
-    display: block;
+  .table-scroll {
     width: 100%;
     max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
   }
 
-  thead {
-    display: none;
+  .table-scroll table {
+    width: max-content;
+    min-width: 100%;
+    max-width: none;
+    table-layout: auto;
+    white-space: nowrap;
   }
 
-  tbody {
-    width: 100%;
-    max-width: 100%;
+  .table-scroll thead {
+    display: table-header-group;
   }
 
-  tbody tr {
-    width: 100%;
-    max-width: 100%;
-    margin: 0 0 20px 0;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    background: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
-    /* Prevent row from becoming wider */
-    min-width: 0;
-    overflow: hidden;
+  .table-scroll tbody {
+    display: table-row-group;
   }
 
-  tbody tr:nth-child(even) {
-    background: #f9f9f9;
-  }
-
-  td {
-    display: flex;
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-
-    justify-content: space-between;
-    align-items: flex-start;
-
-    padding: 8px;
+  .table-scroll tr {
+    display: table-row;
+    width: auto;
+    max-width: none;
+    margin: 0;
+    padding: 0;
     border: none;
-    border-bottom: 1px solid #eee;
-
-    text-align: right;
-
-    overflow-wrap: anywhere;
-    word-break: break-word;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
   }
 
-  td.amount-cell {
-    text-align: right !important;
-    justify-content: space-between;
-  }
-
-  td.amount-cell::before {
-    margin-right: 10px;
-  }
-
-  td:last-child {
-    justify-content: flex-start;
-    gap: 5px;
-  }
-
-  td::before {
-    content: attr(data-label);
-    font-weight: bold;
-    margin-right: 10px;
-    color: #333;
-    flex: 0 0 40%;
+  .table-scroll th,
+  .table-scroll td {
+    display: table-cell;
+    width: auto;
+    max-width: none;
     min-width: 0;
-    text-align: left;
-    overflow-wrap: anywhere;
-    word-break: break-word;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+    white-space: nowrap;
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+
+  .table-scroll td::before {
+    content: none;
+  }
+
+  .table-scroll tbody tr:nth-child(even) {
+    background: #f9f9f9;
   }
 }
 
@@ -280,6 +298,7 @@ footer a:active {
 /* ===============================
    Small Mobile Screens
    =============================== */
+
 @media (max-width: 600px) {
 
   body {
@@ -297,30 +316,42 @@ footer a:active {
     padding: 12px;
   }
 
-  #expense-list {
+  /* Only the table scrolls */
+  .table-scroll {
+    width: 100%;
+    max-width: 100%;
     overflow-x: auto;
+    overflow-y: hidden;
   }
 
-  #expense-list table {
+  .table-scroll table {
     width: max-content;
     min-width: 100%;
+    white-space: nowrap;
   }
 
-  #expense-list th:last-child,
-  #expense-list td:last-child {
-    position: sticky;
-    right: 0;
-    background: white;
-    z-index: 10;
+  .table-scroll td.amount-cell {
+    text-align: center !important;
   }
 
-  #expense-list th:last-child {
-    z-index: 11;
+  .table-scroll td:last-child {
+    display: table-cell;
+    text-align: center;
+    white-space: nowrap;
   }
 
-  tbody tr {
-    margin-left: 0;
-    margin-right: 0;
+  .table-scroll td:last-child button {
+    white-space: nowrap;
+    padding: 10px 18px;
+  }
+
+  /* Export button stays outside scrolling area */
+  #exportExcel {
+    display: block;
+    width: auto;
+    max-width: fit-content;
+    margin: 20px auto;
+    padding: 12px 24px;
   }
 
   input,
@@ -334,50 +365,39 @@ footer a:active {
   #expense-form button {
     width: 100%;
   }
+}
+
+
+/* ===============================
+   Extra Small Screens ≤ 380px
+   =============================== */
+
+@media (max-width: 380px) {
+
+  .table-scroll {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .table-scroll table {
+    width: max-content;
+    min-width: 100%;
+  }
+
+  .table-scroll td:last-child {
+    display: table-cell;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .table-scroll td:last-child button {
+    white-space: nowrap;
+    padding: 8px 14px;
+  }
 
   #exportExcel {
-    width: 100%;
-    max-width: 100%;
-    margin-left: 0;
-    margin-right: 0;
-  }
-}
-
-/* ===============================
-   Mobile Amount & Action Fix
-   =============================== */
-
-@media (max-width: 600px) {
-  td.amount-cell {
-    text-align: right !important;
-    justify-content: space-between;
-  }
-
-  td:last-child {
-    align-items: center;
-  }
-
-  td:last-child button {
-    white-space: nowrap;
-    flex-shrink: 0;
-    padding: 10px 18px;
-  }
-}
-
-/* ===============================
-   Extra Small Screens (≤ 380px)
-   =============================== */
-@media (max-width: 380px) {
-  td:last-child {
-    display: flex;
-    justify-content: center;   /* keeps buttons side by side */
-    align-items: center;
-    gap: 5px;
-  }
-
-  td:last-child button {
-    white-space: nowrap;
-    flex-shrink: 0;
-    padding: 8px 14px; /* slightly smaller for tiny screens */
+    width: auto;
+    max-width: fit-content;
+    margin: 20px auto;
   }
 }
