@@ -148,7 +148,9 @@ function renderRecords() {
 // Add / Update Record
 // ===============================
 addBtn.addEventListener("click", () => {
-  const today = new Date().toISOString().split("T")[0];
+  const now = new Date();
+  const today = 
+`${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
   const from = document.getElementById("from").value.trim();
   const to = document.getElementById("to").value.trim();
   const method = document.getElementById("method").value;
