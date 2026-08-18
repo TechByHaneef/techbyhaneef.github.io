@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Travel Expense Tracker</title>
   <link rel="stylesheet" href="expense.css">
+  <link rel="stylesheet" href="ot.css">
 </head>
 
 <body>
@@ -51,22 +52,22 @@
   <section id="expense-list">
     <h2>Travel Records</h2>
     <div class="table-scroll">
-    <table>
-      <thead>
-        <tr>
-          <th>Date</th>
-          <th>From</th>
-          <th>To</th>
-          <th>Method</th>
-          <th>Customer Name</th>
-          <th>Amount</th>
-          <th>OverTime</th>
-          <th>Food</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody id="expenseTable"></tbody>
-    </table>
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>From</th>
+            <th>To</th>
+            <th>Method</th>
+            <th>Customer Name</th>
+            <th>Amount</th>
+            <th>OverTime</th>
+            <th>Food</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="expenseTable"></tbody>
+      </table>
     </div>
     <button id="exportExcel">Export to Excel</button>
   </section>
@@ -76,6 +77,93 @@
     <p>Total Travel Expenses: <span id="total">&#8377;0.00</span></p>
     <p>Total Overtime: <span id="totalOverTime">0 hours</span></p>
   </section>
+
+  <!-- OvertTime Calculator -->
+
+  <main class="ot-container">
+
+    <h1 class="ot calculator">Overtime Calculator</h1>
+    <p class="subtitle">
+      Calculate your overtime earnings based on your salary and working hours.
+    </p>
+
+    <!-- Salary & Working Details -->
+    <section class="card">
+
+      <h2>Work Details</h2>
+
+      <div class="input-group">
+        <label for="salary">Monthly Salary</label>
+        <input type="number" id="salary" placeholder="Enter Your In-hand Salary" min="0" step="0.01">
+      </div>
+
+      <div class="input-group">
+        <label for="workingDays">Standard Working Days / Month</label>
+        <input type="number" id="workingDays" placeholder="e.g. 26" min="1" max="31">
+      </div>
+
+      <div class="input-group">
+        <label for="standardHours">Standard Working Hours / Day</label>
+        <input type="number" id="standardHours" placeholder="e.g. 8" min="1" step="0.5">
+      </div>
+
+      <div class="input-group">
+        <label for="otHours">Total OT in Hours</label>
+        <input type="number" id="otHours" placeholder="Total OverTime in Hours" min="0">
+      </div>
+
+      <div class="input-group">
+        <label for="otMultiplier">OT Multiplier</label>
+
+        <select id="otMultiplier">
+          <option value="0.5">0.5×</option>
+          <option value="1">1×</option>
+          <option value="1.5" selected>1.5×</option>
+          <option value="2">2×</option>
+        </select>
+      </div>
+
+    </section>
+
+    <button id="calculateBtn">
+      Calculate Overtime
+    </button>
+
+    </section>
+
+
+    <!-- Results -->
+    <section class="card result-card">
+
+      <h2>Result</h2>
+
+      <div class="result-row">
+        <span>Daily Salary</span>
+        <strong id="dailySalary">₹0.00</strong>
+      </div>
+
+      <div class="result-row">
+        <span>Normal Hourly Rate</span>
+        <strong id="hourlyRate">₹0.00</strong>
+      </div>
+
+      <div class="result-row">
+        <span>OT Hourly Rate</span>
+        <strong id="otHourlyRate">₹0.00</strong>
+      </div>
+      <div class="result-row total">
+        <span>OverTime Earning</span>
+        <strong id="otEarnings">₹0.00</strong>
+      </div>
+      <div class="result-row total">
+        <span>Expected Earnings</span>
+        <strong id="otEarnings">₹0.00</strong>
+      </div>
+
+    </section>
+
+  </main>
+
   <footer>
     <a href="https://techbyhaneef.github.io/" target="_blank" rel="noopener noreferrer">Developed By TechByHaneef</a>
   </footer>

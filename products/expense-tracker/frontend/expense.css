@@ -1,6 +1,12 @@
-/* ===============================
-   Global Reset
-   =============================== */
+/* =========================================================
+   TRAVEL EXPENSE TRACKER
+   Main Stylesheet - expense.css
+========================================================= */
+
+
+/* =========================================================
+   GLOBAL RESET
+========================================================= */
 
 * {
   box-sizing: border-box;
@@ -18,99 +24,311 @@ body {
 body {
   background: #f4f4f4;
   font-family: 'Roboto', 'Noto Sans', Arial, sans-serif;
+  color: #333;
 }
 
 
-/* ===============================
-   Header
-   =============================== */
+/* =========================================================
+   HEADER
+========================================================= */
 
 header {
   width: 100%;
-  background: #333;
-  color: #fff;
-  padding: 10px;
+  max-width: 850px;
+
+  margin: 20px auto;
+  padding: 20px;
+
+  background: #0066cc;
+  color: #000;
+
+  border-radius: 12px;
   text-align: center;
 }
 
+header h1 {
+  margin: 0 0 8px;
+  font-size: 2.2rem;
+  color: #000;
+}
 
-/* ===============================
-   Section Layout
-   =============================== */
-
-section {
-  width: calc(100% - 30px);
-  max-width: 1200px;
-  margin: 20px auto;
-  padding: 20px;
-  background: #fff;
-  border-radius: 5px;
-  overflow: hidden;
+header h2 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #000;
 }
 
 
-/* ===============================
-   Travel Records Container
-   =============================== */
+/* =========================================================
+   COMMON SECTION STYLE
+========================================================= */
+
+section {
+  width: 100%;
+  max-width: 1200px;
+
+  margin: 20px auto;
+  padding: 25px;
+
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   EMPLOYEE SECTION
+========================================================= */
+
+#employee-section {
+  width: 100%;
+  max-width: 850px;
+
+  text-align: center;
+}
+
+#employee-section input {
+  width: 100%;
+  max-width: 400px;
+
+  height: 45px;
+
+  margin: 0 5px;
+  padding: 0 12px;
+
+  border: 1px solid #ccc;
+  border-radius: 7px;
+
+  font-size: 1rem;
+  background: #fff;
+}
+
+#employee-section input:focus {
+  outline: none;
+
+  border-color: #007bff;
+
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+
+/* =========================================================
+   BLUE BUTTONS
+========================================================= */
+
+#setEmployee,
+#addExpense {
+  height: 45px;
+
+  padding: 0 20px;
+
+  background: #007bff;
+  color: #fff;
+
+  border: none;
+  border-radius: 7px;
+
+  font-size: 1rem;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: background 0.2s, transform 0.1s;
+}
+
+#setEmployee:hover,
+#addExpense:hover {
+  background: #0069d9;
+}
+
+#setEmployee:active,
+#addExpense:active {
+  transform: scale(0.99);
+}
+
+
+/* =========================================================
+   TRAVEL EXPENSE FORM
+   Same 850px width as Overtime Calculator
+========================================================= */
+
+#expense-form {
+  width: 100%;
+  max-width: 850px;
+
+  margin: 20px auto;
+  padding: 25px;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  background: #fff;
+
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+
+  box-sizing: border-box;
+}
+
+#expense-form input,
+#expense-form select {
+  flex: 1 1 180px;
+
+  width: 100%;
+  height: 45px;
+
+  margin: 0;
+  padding: 0 12px;
+
+  border: 1px solid #ccc;
+  border-radius: 7px;
+
+  font-size: 1rem;
+
+  background: #fff;
+
+  outline: none;
+
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#expense-form input:focus,
+#expense-form select:focus {
+  border-color: #007bff;
+
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+
+/* =========================================================
+   CANCEL EDIT BUTTON
+========================================================= */
+
+#cancelEdit {
+  height: 45px;
+
+  padding: 0 20px;
+
+  background: #666;
+  color: #fff;
+
+  border: none;
+  border-radius: 7px;
+
+  cursor: pointer;
+}
+
+#cancelEdit:hover {
+  background: #555;
+}
+
+
+/* =========================================================
+   REMOVE NUMBER INPUT SPINNER
+========================================================= */
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+/* =========================================================
+   TRAVEL RECORDS
+   Kept at 1200px for the wide table
+========================================================= */
 
 #expense-list {
   width: 100%;
-  max-width: 100%;
+  max-width: 1200px;
+
   overflow: hidden;
 }
 
+#expense-list h2 {
+  margin: 0 0 20px;
 
-/* ===============================
-   Horizontal Table Scroll
-   =============================== */
+  font-size: 1.3rem;
+  color: #222;
+
+  border-bottom: 1px solid #eee;
+
+  padding-bottom: 12px;
+}
+
+
+/* =========================================================
+   TABLE SCROLL
+========================================================= */
 
 .table-scroll {
   width: 100%;
   max-width: 100%;
+
   overflow-x: auto;
   overflow-y: hidden;
+
   -webkit-overflow-scrolling: touch;
 }
 
 
-/* ===============================
-   Table
-   =============================== */
+/* =========================================================
+   TRAVEL TABLE
+========================================================= */
 
 .table-scroll table {
   width: max-content;
   min-width: 100%;
-  max-width: none;
+
+  margin: 0;
+
   border-collapse: collapse;
   table-layout: auto;
-  margin: 0;
+
   white-space: nowrap;
 }
 
 .table-scroll th,
 .table-scroll td {
   padding: 10px;
-  border-bottom: 1px solid #ddd;
+
+  border-bottom: 1px solid #e5e5e5;
+
   text-align: center;
+
   white-space: nowrap;
+
   overflow-wrap: normal;
   word-break: normal;
 }
 
 
-/* Amount */
-.table-scroll td:nth-child(6) {
-  text-align: center;
-}
+/* =========================================================
+   AMOUNT COLUMN
+========================================================= */
 
+.table-scroll td:nth-child(6),
 .table-scroll .amount-cell {
   text-align: center !important;
 }
 
 
-/* ===============================
-   Actions
-   =============================== */
+/* =========================================================
+   ACTIONS COLUMN
+========================================================= */
 
 .table-scroll td:last-child {
   white-space: nowrap;
@@ -119,81 +337,69 @@ section {
 
 .table-scroll td:last-child button {
   white-space: nowrap;
+
   flex-shrink: 0;
-}
 
+  padding: 8px 14px;
+  margin: 3px;
 
-/* ===============================
-   Buttons
-   =============================== */
-
-button {
-  background: #333;
-  color: #fff;
   border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  margin: 5px;
-  border-radius: 4px;
-}
+  border-radius: 7px;
 
-button:hover {
-  background: #555;
-}
-
-
-/* ===============================
-   Inputs & Selects
-   =============================== */
-
-select,
-input {
-  margin: 5px;
-  padding: 8px;
-  max-width: 100%;
-}
-
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-
-/* ===============================
-   Summary
-   =============================== */
-
-#summary {
-  background: #0066cc;
   color: #fff;
-  padding: 15px;
-  border-radius: 8px;
-  text-align: center;
-  font-size: 18px;
-  margin-top: 20px;
-}
 
-#total {
-  font-weight: bold;
-  font-size: 18px;
+  font-size: 0.9rem;
+  font-weight: 600;
+
+  cursor: pointer;
 }
 
 
-/* ===============================
-   Export Button
-   =============================== */
+/* Edit */
+
+.table-scroll td:last-child button:first-child {
+  background: #007bff;
+}
+
+.table-scroll td:last-child button:first-child:hover {
+  background: #0069d9;
+}
+
+
+/* Delete */
+
+.table-scroll td:last-child button:last-child {
+  background: #dc3545;
+}
+
+.table-scroll td:last-child button:last-child:hover {
+  background: #c82333;
+}
+
+
+/* =========================================================
+   EXPORT TO EXCEL
+========================================================= */
 
 #exportExcel {
   display: block;
-  width: auto;
-  max-width: fit-content;
-  margin: 20px auto;
+
+  width: fit-content;
+  max-width: 100%;
+
+  margin: 20px auto 0;
   padding: 12px 24px;
+
   background: #28a745;
   color: #fff;
-  font-size: 16px;
-  border-radius: 6px;
+
+  border: none;
+  border-radius: 7px;
+
+  font-size: 1rem;
+  font-weight: 600;
+
+  cursor: pointer;
 }
 
 #exportExcel:hover {
@@ -201,44 +407,101 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 
-/* ===============================
-   Footer
-   =============================== */
+/* =========================================================
+   SUMMARY
+   Same 850px width as Overtime Calculator
+========================================================= */
+
+#summary {
+  width: 100%;
+  max-width: 850px;
+
+  margin: 40px auto;
+  padding: 20px;
+
+  background: #0066cc;
+  color: #000;
+
+  border: none;
+  border-radius: 12px;
+
+  box-shadow: none;
+
+  text-align: center;
+
+  font-size: 1rem;
+
+  box-sizing: border-box;
+}
+
+#summary h2 {
+  margin: 0 0 20px;
+
+  padding-bottom: 12px;
+
+  font-size: 1.3rem;
+
+  color: #000;
+
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+#summary p {
+  margin: 12px 0;
+
+  color: #000;
+}
+
+#total,
+#totalOverTime {
+  color: #000;
+
+  font-weight: 700;
+
+  font-size: 1.1rem;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
 
 footer {
   width: 100%;
-  background-color: #222;
+
   padding: 20px;
+
+  background: transparent;
+
   text-align: center;
 }
 
 footer a {
-  color: #f1f1f1;
+  color: #333;
+
   text-decoration: none;
+
   font-size: 16px;
   font-weight: 500;
-  transition: color 0.3s ease, transform 0.3s ease;
+
+  transition: color 0.2s;
 }
 
 footer a:hover {
-  color: #00bcd4;
-  transform: scale(1.05);
-}
-
-footer a:active {
-  color: #ff9800;
+  color: #007bff;
 }
 
 
-/* ===============================
-   Mobile
-   =============================== */
+/* =========================================================
+   TABLET
+========================================================= */
 
 @media (max-width: 1200px) {
 
   .table-scroll {
     width: 100%;
     max-width: 100%;
+
     overflow-x: auto;
     overflow-y: hidden;
   }
@@ -246,43 +509,27 @@ footer a:active {
   .table-scroll table {
     width: max-content;
     min-width: 100%;
-    max-width: none;
+
     table-layout: auto;
+
     white-space: nowrap;
-  }
-
-  .table-scroll thead {
-    display: table-header-group;
-  }
-
-  .table-scroll tbody {
-    display: table-row-group;
-  }
-
-  .table-scroll tr {
-    display: table-row;
-    width: auto;
-    max-width: none;
-    margin: 0;
-    padding: 0;
-    border: none;
-    border-radius: 0;
-    background: transparent;
-    box-shadow: none;
   }
 
   .table-scroll th,
   .table-scroll td {
     display: table-cell;
+
     width: auto;
-    max-width: none;
     min-width: 0;
+    max-width: none;
+
     padding: 10px;
-    border-bottom: 1px solid #ddd;
+
+    border-bottom: 1px solid #e5e5e5;
+
     text-align: center;
+
     white-space: nowrap;
-    overflow-wrap: normal;
-    word-break: normal;
   }
 
   .table-scroll td::before {
@@ -295,9 +542,9 @@ footer a:active {
 }
 
 
-/* ===============================
-   Small Mobile Screens
-   =============================== */
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media (max-width: 600px) {
 
@@ -305,21 +552,104 @@ footer a:active {
     font-size: 16px;
   }
 
+
+  /* Header */
+
   header {
-    padding: 10px;
+    width: calc(100% - 20px);
+    max-width: 850px;
+
+    margin: 10px auto;
+    padding: 15px;
   }
+
+  header h1 {
+    font-size: 1.8rem;
+  }
+
+  header h2 {
+    font-size: 0.95rem;
+  }
+
+
+  /* Common sections */
 
   section {
     width: calc(100% - 20px);
     max-width: calc(100% - 20px);
+
     margin: 10px auto;
-    padding: 12px;
+    padding: 18px;
+
+    border-radius: 10px;
   }
 
-  /* Only the table scrolls */
+
+  /* Employee */
+
+  #employee-section {
+    width: calc(100% - 20px);
+    max-width: 850px;
+  }
+
+  #employee-section input {
+    display: block;
+
+    width: 100%;
+    max-width: 100%;
+
+    margin: 0 0 10px;
+  }
+
+  #setEmployee {
+    display: block;
+
+    width: fit-content;
+
+    margin: 10px auto 0;
+  }
+
+
+  /* Travel Expense Form */
+
+  #expense-form {
+    width: calc(100% - 20px);
+    max-width: 850px;
+
+    margin: 10px auto;
+    padding: 18px;
+
+    display: block;
+
+    border-radius: 10px;
+  }
+
+  #expense-form input,
+  #expense-form select,
+  #expense-form button {
+    display: block;
+
+    width: 100%;
+    max-width: 100%;
+
+    margin: 8px 0;
+  }
+
+
+  /* Travel Records */
+
+  #expense-list {
+    width: calc(100% - 20px);
+    max-width: 1200px;
+  }
+
+
+  /* Table */
+
   .table-scroll {
     width: 100%;
     max-width: 100%;
+
     overflow-x: auto;
     overflow-y: hidden;
   }
@@ -327,6 +657,7 @@ footer a:active {
   .table-scroll table {
     width: max-content;
     min-width: 100%;
+
     white-space: nowrap;
   }
 
@@ -336,46 +667,89 @@ footer a:active {
 
   .table-scroll td:last-child {
     display: table-cell;
+
     text-align: center;
+
     white-space: nowrap;
   }
 
   .table-scroll td:last-child button {
-    white-space: nowrap;
     padding: 10px 18px;
+
+    white-space: nowrap;
   }
 
-  /* Export button stays outside scrolling area */
+
+  /* Export */
+
   #exportExcel {
-    display: block;
-    width: auto;
-    max-width: fit-content;
-    margin: 20px auto;
-    padding: 12px 24px;
-  }
-
-  input,
-  select,
-  button {
+    width: fit-content;
     max-width: 100%;
+
+    margin: 20px auto;
   }
 
-  #expense-form input,
-  #expense-form select,
-  #expense-form button {
-    width: 100%;
+
+  /* Summary */
+
+  #summary {
+    width: calc(100% - 20px);
+    max-width: 850px;
+
+    margin: 20px auto;
+
+    padding: 18px;
   }
 }
 
 
-/* ===============================
-   Extra Small Screens ≤ 380px
-   =============================== */
+/* =========================================================
+   EXTRA SMALL SCREENS
+========================================================= */
 
 @media (max-width: 380px) {
 
+  header h1 {
+    font-size: 1.6rem;
+  }
+
+  header h2 {
+    font-size: 0.9rem;
+  }
+
+
+  /* Common sections */
+
+  section {
+    width: calc(100% - 20px);
+
+    padding: 15px;
+  }
+
+
+  /* Expense form */
+
+  #expense-form {
+    width: calc(100% - 20px);
+
+    padding: 15px;
+  }
+
+
+  /* Summary */
+
+  #summary {
+    width: calc(100% - 20px);
+
+    padding: 15px;
+  }
+
+
+  /* Table */
+
   .table-scroll {
     width: 100%;
+
     overflow-x: auto;
   }
 
@@ -386,18 +760,52 @@ footer a:active {
 
   .table-scroll td:last-child {
     display: table-cell;
+
     text-align: center;
+
     white-space: nowrap;
   }
 
   .table-scroll td:last-child button {
-    white-space: nowrap;
     padding: 8px 14px;
+
+    white-space: nowrap;
   }
 
+
+  /* Export */
+
   #exportExcel {
-    width: auto;
-    max-width: fit-content;
+    width: fit-content;
+    max-width: 100%;
+
     margin: 20px auto;
   }
+}
+/* =========================================================
+   FOOTER - BLUE STYLE
+========================================================= */
+
+footer {
+  width: 100%;
+  margin: 20px auto;
+  padding: 20px;
+
+  background: #0066cc;
+  color: #000;
+
+  border-radius: 12px;
+
+  text-align: center;
+  box-sizing: border-box;
+}
+
+footer a {
+  color: #000;
+  text-decoration: none;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  transition: opacity 0.2s;
 }
