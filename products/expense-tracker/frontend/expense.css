@@ -42,7 +42,7 @@ header {
   background: #0066cc;
   color: #000;
 
-  border-radius: 12px;
+  border-radius: 8px;
   text-align: center;
 }
 
@@ -73,7 +73,7 @@ section {
 
   background: #fff;
   border: 1px solid #e5e5e5;
-  border-radius: 12px;
+  border-radius: 8px;
 
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
 
@@ -175,7 +175,7 @@ section {
   background: #fff;
 
   border: 1px solid #e5e5e5;
-  border-radius: 12px;
+  border-radius: 8px;
 
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
 
@@ -423,7 +423,7 @@ input[type="number"]::-webkit-outer-spin-button {
   color: #000;
 
   border: none;
-  border-radius: 12px;
+  border-radius: 8px;
 
   box-shadow: none;
 
@@ -581,7 +581,7 @@ footer a:hover {
     margin: 10px auto;
     padding: 18px;
 
-    border-radius: 12px;
+    border-radius: 8px;
   }
 
 
@@ -621,7 +621,7 @@ footer a:hover {
 
     display: block;
 
-    border-radius: 12px;
+    border-radius: 8px;
   }
 
   #expense-form input,
@@ -794,7 +794,7 @@ footer {
   background: #0066cc;
   color: #000;
 
-  border-radius: 8px;
+  border-radius: none;
 
   text-align: center;
   box-sizing: border-box;
