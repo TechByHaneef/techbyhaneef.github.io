@@ -30,7 +30,7 @@
 .ot-container .card {
     background: #fff;
     border: 1px solid #e5e5e5;
-    border-radius: 12px;
+    border-radius: 8px;
     padding: 25px;
     margin-bottom: 20px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
@@ -251,14 +251,14 @@
     margin-top: 0;
     margin-bottom: 0;
     padding: 25px 20px 5px;
-    border-radius: 12px 12px 0 0;
+    border-radius: 8px 8px 0 0;
 }
 
 .ot-container > .subtitle {
     margin-top: 0;
     margin-bottom: 30px;
     padding: 5px 20px 25px;
-    border-radius: 0 0 12px 12px;
+    border-radius: 0 0 8px 8px;
 }
 #summary {
     width: calc(100% - 30px);
