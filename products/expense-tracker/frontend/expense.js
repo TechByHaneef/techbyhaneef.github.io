@@ -60,12 +60,6 @@ setEmployeeBtn.addEventListener("click", () => {
   }
 });
 
-// ===============================
-// Overtime Helpers
-// 8 hours = 1 day
-// 16 hours = 2 days
-// 20 hours = 2 days 4 hours
-// ===============================
 function getOvertimeHours(value) {
   if (value === null || value === undefined || value === "") return 0;
 
@@ -73,22 +67,35 @@ function getOvertimeHours(value) {
   return Number.isFinite(parsed) && parsed >= 0 ? parsed : 0;
 }
 
-function formatOvertime(hours) {
-  const totalHours = getOvertimeHours(hours);
-  const days = Math.floor(totalHours / 8);
-  const remainingHours = totalHours % 8;
+function parseOvertime(value) {
+  if (!value) return 0;
 
-  if (days > 0 && remainingHours > 0) {
-    return `${days} day${days !== 1 ? "s" : ""} ${remainingHours} hour${remainingHours !== 1 ? "s" : ""}`;
+  // Allows 4:30 = 4.5 hours
+  if (value.includes(":")) {
+    const [hours, minutes] = value.split(":").map(Number);
+
+    if (
+      !Number.isFinite(hours) ||
+      !Number.isFinite(minutes) ||
+      hours < 0 ||
+      minutes < 0 ||
+      minutes >= 60
+    ) {
+      return NaN;
+    }
+
+    return hours + minutes / 60;
   }
 
-  if (days > 0) {
-    return `${days} day${days !== 1 ? "s" : ""}`;
-  }
-
-  return `${remainingHours} hour${remainingHours !== 1 ? "s" : ""}`;
+  // Allows decimal input like 4.5
+  const hours = parseFloat(value);
+  return Number.isFinite(hours) && hours >= 0 ? hours : NaN;
 }
 
+function formatOvertime(hours) {
+  const totalHours = getOvertimeHours(hours);
+  return `${totalHours} hour${totalHours !== 1 ? "s" : ""}`;
+}
 // ===============================
 // Render Records in Table
 // ===============================
@@ -116,28 +123,57 @@ function renderRecords() {
 
       totalOvertimeHours += getOvertimeHours(rec.overTime);
 
-      const row = `
-        <tr>
-          <td data-label="Date">${rec.date || "N/A"}</td>
-          <td data-label="From">${rec.from || "N/A"}</td>
-          <td data-label="To">${rec.to || "N/A"}</td>
-          <td data-label="Method">${rec.method || "N/A"}</td>
-          <td data-label="Customer Name">${rec.customerName || "N/A"}</td>
-          <td data-label="Amount" class="amount-cell">
-            ${amountDisplay !== "N/A" ? `₹${Number(amountDisplay).toFixed(2)}` : "N/A"}
-          </td>
-          <td data-label="OverTime">
-            ${rec.overTime !== undefined && rec.overTime !== "" ? `${rec.overTime} hours` : "N/A"}
-          </td>
-          <td data-label="Food">${rec.food || "N/A"}</td>
-          <td data-label="Actions" class="actions-cell">
-            <button type="button" onclick="editRecord(${rec.id})">Edit</button>
-            <button type="button" onclick="deleteRecord(${rec.id})">Delete</button>
-          </td>
-        </tr>
-      `;
+      const row = document.createElement("tr");
 
-      tableBody.innerHTML += row;
+      function addCell(value, label, className = "") {
+        const cell = document.createElement("td");
+        cell.dataset.label = label;
+        cell.textContent = value;
+        if (className) cell.className = className;
+        row.appendChild(cell);
+      }
+
+      addCell(rec.date || "N/A", "Date");
+      addCell(rec.from || "N/A", "From");
+      addCell(rec.to || "N/A", "To");
+      addCell(rec.method || "N/A", "Method");
+      addCell(rec.customerName || "N/A", "Customer Name");
+
+      const amountCell = document.createElement("td");
+      amountCell.dataset.label = "Amount";
+      amountCell.className = "amount-cell";
+      amountCell.textContent = `₹${Number(amountDisplay).toFixed(2)}`;
+      row.appendChild(amountCell);
+
+      addCell(
+        rec.overTime !== undefined && rec.overTime !== ""
+          ? `${rec.overTime} hours`
+          : "N/A",
+        "OverTime"
+      );
+
+      addCell(rec.food || "N/A", "Food");
+
+      const actionsCell = document.createElement("td");
+      actionsCell.dataset.label = "Actions";
+      actionsCell.className = "actions-cell";
+
+      const editButton = document.createElement("button");
+      editButton.type = "button";
+      editButton.textContent = "Edit";
+      editButton.addEventListener("click", () => editRecord(rec.id));
+
+      const deleteButton = document.createElement("button");
+      deleteButton.type = "button";
+      deleteButton.textContent = "Delete";
+      deleteButton.addEventListener("click", () => deleteRecord(rec.id));
+
+      actionsCell.appendChild(editButton);
+      actionsCell.appendChild(deleteButton);
+
+      row.appendChild(actionsCell);
+
+      tableBody.appendChild(row);
     });
 
     totalEl.textContent = `₹${total.toFixed(2)}`;
@@ -150,8 +186,8 @@ function renderRecords() {
 // ===============================
 addBtn.addEventListener("click", () => {
   const now = new Date();
-  const today = 
-`${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
+  const today =
+    `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
   const from = document.getElementById("from").value.trim();
   const to = document.getElementById("to").value.trim();
   const method = document.getElementById("method").value;
@@ -161,7 +197,7 @@ addBtn.addEventListener("click", () => {
   const food = document.getElementById("food").value;
 
   const amount = amountValue ? parseFloat(amountValue) : null;
-  const overTime = overTimeValue ? parseFloat(overTimeValue) : 0;
+  const overTime = overTimeValue ? parseOvertime(overTimeValue) : 0;
 
   if (!employeeName) {
     alert("Please set employee name first.");

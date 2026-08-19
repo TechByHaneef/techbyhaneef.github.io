@@ -39,7 +39,6 @@ if (registerForm) {
         const visitorData = {
             name: document.getElementById("name").value,
             email: document.getElementById("email").value,
-            company: document.getElementById("company").value
         };
 
         console.log("Visitor Registered:", visitorData);
