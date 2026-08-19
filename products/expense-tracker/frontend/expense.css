@@ -417,7 +417,7 @@ input[type="number"]::-webkit-outer-spin-button {
   max-width: 850px;
 
   margin: 40px auto;
-  padding: 20px;
+  padding: 0 20px;
 
   background: #0066cc;
   color: #000;
