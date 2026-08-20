@@ -34,11 +34,11 @@ const MAX_SALARY = 100000000;
 const MIN_WORKING_DAYS = 1;
 const MAX_WORKING_DAYS = 31;
 
-const MIN_STANDARD_HOURS = 1;
-const MAX_STANDARD_HOURS = 24;
+const MIN_STANDARD_HOURS = 6;
+const MAX_STANDARD_HOURS = 12;
 
 const MIN_OT_HOURS = 0;
-const MAX_OT_HOURS = 10000;
+const MAX_OT_HOURS = 240;
 
 const ALLOWED_MULTIPLIERS = Object.freeze([
     0.5,
@@ -262,7 +262,7 @@ function calculateOvertime() {
             )
         ) {
             throw new Error(
-                "Standard working hours must be between 1 and 24."
+                "Standard working hours must be between 6 and 12."
             );
         }
 
