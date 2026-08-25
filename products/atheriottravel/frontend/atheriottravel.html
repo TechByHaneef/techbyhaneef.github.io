@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AtheriotTravel</title>
+  <link rel="stylesheet" href="atheriottravel.css">
+  <script src="atheriottravel.protected.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <h1>Atheriot Travel</h1>
+    <p> Record your travel expense smartly & report to management smoothly.</p>
+    <h2 id="employeeNameDisplay">Employee: </h2>
+  </header>
+
+  <section id="employee-section">
+    <input type="text" id="employeeNameInput" placeholder="Enter Employee Name" required>
+    <button id="setEmployee">Set Employee</button>
+  </section>
+
+  <section id="expense-form">
+    <input type="text" id="from" placeholder="From">
+    <input type="text" id="to" placeholder="To">
+
+    <select id="method">
+      <option value="">Select Method</option>
+      <option value="Bus">Bus</option>
+      <option value="Train">Train</option>
+      <option value="Auto">Auto</option>
+      <option value="Taxi">Taxi</option>
+      <option value="Metro">Metro</option>
+      <option value="Bike">Bike</option>
+      <option value="Van">Van</option>
+    </select>
+
+    <input type="text" id="customerName" placeholder="Customer Name">
+    <input type="number" id="amount" placeholder="Amount" step="0.01" min="0">
+    <input type="number" id="overTime" placeholder="OverTime (hours)" step="0.5" min="0">
+
+    <select id="food">
+      <option value="">Select Food</option>
+      <option value="Breakfast">Breakfast</option>
+      <option value="Lunch">Lunch</option>
+      <option value="Dinner">Dinner</option>
+      <option value="Snacks">Snacks</option>
+    </select>
+
+    <button id="addExpense">Add Travel Record</button>
+    <button id="cancelEdit" style="display:none;">Cancel Edit</button>
+  </section>
+
+  <section id="expense-list">
+    <h2>Travel Records</h2>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>From</th>
+            <th>To</th>
+            <th>Method</th>
+            <th>Customer Name</th>
+            <th>Amount</th>
+            <th>OverTime</th>
+            <th>Food</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="expenseTable"></tbody>
+      </table>
+    </div>
+    <button id="exportExcel">Export to Excel</button>
+  </section>
+
+  <section id="summary">
+    <h2>Summary</h2>
+    <p>Total Travel Expenses: <span id="total">&#8377;0.00</span></p>
+    <p>Total Overtime: <span id="totalOverTime">0 hours</span></p>
+  </section>
+
+  <footer>
+    <a href="https://techbyhaneef.github.io/" target="_blank" rel="noopener noreferrer">Developed By TechByHaneef</a>
+  </footer>
+  <!-- SheetJS for Excel export -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</body>
+
+</html>
