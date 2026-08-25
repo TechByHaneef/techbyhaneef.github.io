@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="atheriotovertime.css">
+    <script src="atheriotovertime.js" defer></script>
+    <title>AtheriotOverTime</title>
+</head>
+<body>
+     <!-- OvertTime Calculator -->
+
+  <main class="ot-container">
+
+    <h1 class="ot calculator">Atheriot OverTime</h1>
+    <p class="subtitle">
+      Calculate your overtime earnings and hourly rate based on your salary and working hours. 
+    </p>
+
+    <!-- Salary & Working Details -->
+    <section class="card">
+
+      <h2>Work Details</h2>
+
+      <div class="input-group">
+        <label for="salary">Monthly Salary</label>
+        <input type="number" id="salary" placeholder="Enter Your In-hand Salary">
+      </div>
+
+      <div class="input-group">
+        <label for="workingDays">Standard Working Days / Month</label>
+        <input type="number" id="workingDays" placeholder="e.g. 26">
+      </div>
+
+      <div class="input-group">
+        <label for="standardHours">Standard Working Hours / Day</label>
+        <input type="number" id="standardHours" placeholder="e.g. 8">
+      </div>
+
+      <div class="input-group">
+        <label for="otHours">Total OverTime in Hours</label>
+        <input type="number" id="otHours" placeholder="Total OverTime in Hours">
+      </div>
+
+      <div class="input-group">
+        <label for="otMultiplier">OverTime Multiplier</label>
+
+        <select id="otMultiplier">
+          <option value="0.5">0.5×</option>
+          <option value="1">1×</option>
+          <option value="1.5" selected>1.5×</option>
+          <option value="2">2×</option>
+        </select>
+      </div>
+
+    </section>
+
+    <button id="calculateBtn">
+      Calculate OverTime
+    </button>
+
+    </section>
+
+
+    <!-- Results -->
+    <section class="card result-card">
+
+      <h2>Result</h2>
+
+      <div class="result-row">
+        <span>Daily Salary</span>
+        <strong id="dailySalary">₹0.00</strong>
+      </div>
+
+      <div class="result-row">
+        <span>Normal Hourly Rate</span>
+        <strong id="hourlyRate">₹0.00</strong>
+      </div>
+
+      <div class="result-row">
+        <span>OverTime Hourly Rate</span>
+        <strong id="otHourlyRate">₹0.00</strong>
+      </div>
+      <div class="result-row total">
+        <span>OverTime Earning</span>
+        <strong id="otEarnings">₹0.00</strong>
+      </div>
+      <div class="result-row total">
+        <span>Total Earnings</span>
+        <strong id="totalEarnings">₹0.00</strong>
+      </div>
+
+    </section>
+
+  </main>
+  
+   <footer>
+    <a href="https://techbyhaneef.github.io/" target="_blank" rel="noopener noreferrer">Developed By TechByHaneef</a>
+  </footer>
+
+</body>
+</html>
